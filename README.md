@@ -57,7 +57,7 @@
 - **POST** `/transcribe/faster-whisper`
 - **파라미터**:
 - `file`: 음성 파일 (`wav` 또는 `mp3` 형식)
-- `model_size`: 모델 크기 (`tiny`, `small`, `medium`, `large`)
+- `model_size`: 모델 크기 (`tiny`, `small`, `medium`, `large`, `deepdml/faster-whisper-large-v3-turbo-ct2`)
 - **응답**:
 - `transcription`: 변환된 텍스트
 - `detected_language`: 감지된 언어
@@ -71,6 +71,4 @@
 - `transcription`: 변환된 텍스트
 - `execution_time`: 변환에 걸린 시간
 
-## 라이선스
-이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 사항은 `LICENSE` 파일을 참조하세요.
 
