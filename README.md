@@ -18,8 +18,8 @@
 
 1. 이 저장소를 클론합니다:
    ```bash
-   git clone https://github.com/사용자이름/whisper-api.git
-   cd whisper-api
+   git clone https://github.com/asa1374/Whisper.git
+   cd Whisper
    
 2. 필요한 라이브러리를 설치합니다:
    ```bash
@@ -36,7 +36,7 @@
 
 1. Flask 애플리케이션을 실행합니다:
    ```bash
-   python app.py
+   python server_multi_whisper.py
 
 2. 브라우저에서 Swagger UI에 접속하여 API를 테스트할 수 있습니다:
    ```bash
