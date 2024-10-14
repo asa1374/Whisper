@@ -2,6 +2,7 @@
 
 이 프로젝트는 Whisper, Faster Whisper, Whisper v3 Turbo 모델을 사용하여 음성 파일을 텍스트로 변환하는 Flask 기반의 API 서버입니다.
 
+
 ## 기능
 - Whisper(OpenAI)를 사용한 음성 텍스트 변환
 - Faster Whisper 모델을 사용한 음성 텍스트 변환
@@ -71,4 +72,10 @@
 - `transcription`: 변환된 텍스트
 - `execution_time`: 변환에 걸린 시간
 
+## 테스트 결과
+
+### deepdml/faster-whisper-large-v3-turbo-ct2 모델이 가장 빠르고 성능이 우수.
+- 최근 openai에서 large-v3-turbo 모델을 출시하였고, 이를 Faster 모델로 fine-tunning 함.
+- faster 모델은 CTranslate2을 이용하여 fine-tuning 한 모델로 처리 속도가 빠름.
+- turbo 모델과 비교했을 때 속도가 약 2배 정도 빠른 것으로 확인 됨.
 
