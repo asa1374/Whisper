@@ -1,0 +1,201 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Whisper & Faster Whisper API",
+    "description": "API for Speech-to-Text using Whisper, Faster Whisper, and Whisper v3 turbo models.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/transcribe/whisper": {
+      "post": {
+        "summary": "Transcribe audio using Whisper (OpenAI)",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Audio file to be transcribed",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "model_size",
+            "in": "formData",
+            "description": "Whisper model size (tiny, small, medium, large)",
+            "required": true,
+            "type": "string",
+            "enum": ["tiny", "small", "medium", "large"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transcription result",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "transcription": {
+                  "type": "string",
+                  "description": "Transcribed text"
+                },
+                "execution_time": {
+                  "type": "string",
+                  "description": "Time taken for transcription in seconds"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error during transcription",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transcribe/faster-whisper": {
+      "post": {
+        "summary": "Transcribe audio using Faster Whisper",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Audio file to be transcribed",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "model_size",
+            "in": "formData",
+            "description": "Faster Whisper model size (tiny, small, medium, large)",
+            "required": true,
+            "type": "string",
+            "enum": ["tiny", "small", "medium", "large", "deepdml/faster-whisper-large-v3-turbo-ct2"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transcription result",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "transcription": {
+                  "type": "string",
+                  "description": "Transcribed text"
+                },
+                "detected_language": {
+                  "type": "string",
+                  "description": "Detected language"
+                },
+                "execution_time": {
+                  "type": "string",
+                  "description": "Time taken for transcription in seconds"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error during transcription",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transcribe/whisper-v3-turbo": {
+      "post": {
+        "summary": "Transcribe audio using Whisper v3 turbo",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Audio file to be transcribed",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transcription result",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "transcription": {
+                  "type": "string",
+                  "description": "Transcribed text"
+                },
+                "execution_time": {
+                  "type": "string",
+                  "description": "Time taken for transcription in seconds"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error during transcription",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
